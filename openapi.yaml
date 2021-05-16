@@ -21,6 +21,52 @@ paths:
                     $ref: "#/components/schemas/User"
                   code:
                     type: integer
+  "/api/v1/me/add":
+    post:
+      summary: add user
+      responses:
+        '200':
+          description: current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
+  "/api/v1/me/del":
+    post:
+      summary: delete user's profile
+      responses:
+        '200':
+          description: current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
+  "/api/v1/me/select":
+    get:
+      summary: select user's profile
+      responses:
+        '200':
+          description: current user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
+                  code:
+                    type: integer
+  
   "/api/v1/login":
     options:
       summary: get csrf token
@@ -106,27 +152,27 @@ paths:
 #
 #
 #
-#  "/api/v1/register":
-#    post: 
-#      summary: register
-#      requestBody:
-#        content:
-#          application/json:
-#            schema:
-#                $ref: "#/components/schemas/SendVerificationForm"
-#      responses:
-#        '200':
-#          description: success register
-#          content:
-#            application/json:
-#              schema:
-#                type: object
-#                properties:
-#                  data: 
-#                    type: integer
-#                  code:
-#                    type: integer
-#        
+  "/api/v1/register":
+    post:
+      summary: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+                $ref: "#/components/schemas/SendVerificationForm"
+      responses:
+        '200':
+          description: success register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: integer
+                  code:
+                    type: integer
+
 
 
   "/api/v1/articles":
@@ -150,8 +196,68 @@ paths:
                     type: integer
                   code:
                     type: integer
-      
-                    
+  "/api/v1/articles/add":
+    post: 
+      summary: add articles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginForm"
+      responses:
+        '200':
+          description: success register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: integer
+                  code:
+                    type: integer
+  "/api/v1/articles/del":
+    post: 
+      summary: delete articles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginForm"
+      responses:
+        '200':
+          description: success register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: integer
+                  code:
+                    type: integer
+  "/api/v1/articles/select":
+    post: 
+      summary: select articles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginForm"
+      responses:
+        '200':
+          description: success register
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: integer
+                  code:
+                    type: integer    
+
+
   "/api/v1/articles/<pk>":
     get: 
       summary: article
@@ -229,6 +335,19 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Group"
+        picture:
+          type: string
+        wechat:
+          type: string
+        school:
+          type: string
+        major:
+          type: string
+        company:
+          type: string
+        carcee:
+          type: string
+          
     Group:
       type: object
       properties:
@@ -238,3 +357,28 @@ components:
           minimum: 1
         name:
           type: string
+
+    Articles:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+        author:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        create_at: 
+          type: string 
+          format: date-time
+        update-at:
+          type: string
+          format: date-time
+        status:
+           type: integer
+
+          
+

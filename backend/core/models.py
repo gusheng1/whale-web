@@ -22,6 +22,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     description = models.TextField(_('description'), blank=True)
     last_login_ip = models.CharField(_('last login ip'), max_length=64, blank=True)
+    
+    picture = models.CharField(_('picture'),max_length=255,default="")
+    wechat = models.CharField(_('wechat'),max_length=50,default="")
+    school = models.CharField(_('school'),max_length=50,default="")
+    major = models.CharField(_('major'),max_length=50,default="")
+    company = models.CharField(_('company'),max_length=50,default="")
+    carcee = models.CharField(_('carcee'),max_length=50,default="")
 
     objects = UserManager()
 
@@ -39,3 +46,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         send_mail(subject, message, from_email, [self.email], **kwargs)
+
+    

@@ -71,6 +71,41 @@ def get_user_info(request):
     else:
         return Response({"data": None, "code": 0}, status=status.HTTP_401_UNAUTHORIZED)
 
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def add_user_info(request):
+    pass
+    # user = request.user
+    # if user.is_authenticated:
+    #     serializer = UserSerializer(user)
+    #     return Response({"data": serializer.data, "code": 0})
+    # else:
+    #     return Response({"data": None, "code": 0}, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def delete_user_info(request):
+    pass
+    # user = request.user
+    # if user.is_authenticated:
+    #     serializer = UserSerializer(user)
+    #     return Response({"data": serializer.data, "code": 0})
+    # else:
+    #     return Response({"data": None, "code": 0}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def select_user_info(request):
+    pass
+    # user = request.user
+    # if user.is_authenticated:
+    #     serializer = UserSerializer(user)
+    #     return Response({"data": serializer.data, "code": 0})
+    # else:
+    #     return Response({"data": None, "code": 0}, status=status.HTTP_401_UNAUTHORIZED)
+
+
 
 @api_view(['POST'])
 def send_verification_mail(request):

@@ -6,6 +6,8 @@ import shortuuid
 from rest_framework import status
 from rest_framework.response import Response
 
+from rest_framework.decorators import api_view, permission_classes
+
 from .serializers import ArticleSerializer
 from .models import Article
 from core.permissions import ReadOnly
@@ -42,3 +44,16 @@ class ArticleDetailView(BasicRetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated|ReadOnly]
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
+
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def add_articles(request):
+    pass
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def delete_articles(request):
+    pass
+@api_view(['POST'])
+# @permission_classes([IsAuthenticated])
+def select_articles(request):
+    pass

@@ -20,6 +20,17 @@
         <v-icon>mdi-table-heart</v-icon>
         关注
       </v-btn>
+      
+      
+      <v-btn plain to="/lingyu">
+        <v-icon>mdi-account-circle</v-icon>
+        领域
+      </v-btn>
+      <v-btn plain to="/bangdan">
+        <v-icon>mdi-message-bulleted</v-icon>
+        榜单
+      </v-btn>
+
       <v-spacer></v-spacer>
       <v-btn icon to="/articles/editor/add" v-show="isAuthenticated">
         <v-icon>mdi-book-plus</v-icon>

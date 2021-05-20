@@ -60,6 +60,39 @@
   </v-container>
 </template>
 
+<template>
+ <v-container fluid fill-height>
+    <v-layout align-content-space-around
+              justify-space-around
+              row
+              class="login">
+      <!-- login form -->
+      <v-flex xs12
+              md4
+              offset-4
+              class="flex-box">
+  <v-card
+    class="mx-auto"
+    max-width="500"
+  >
+    <v-list>
+      <v-list-item-group v-model="model">
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+        >
+          <v-list-item-icon>
+            <v-icon v-text="item.icon"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.text"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+  </v-card>
+</template>
+
 <style lang="scss" scoped>
 .login {
   background-image: url(../assets/bluewhale.svg);

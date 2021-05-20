@@ -44,16 +44,3 @@ class ArticleDetailView(BasicRetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated|ReadOnly]
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
-
-@api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-def add_articles(request):
-    pass
-@api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-def delete_articles(request):
-    pass
-@api_view(['POST'])
-# @permission_classes([IsAuthenticated])
-def select_articles(request):
-    pass
